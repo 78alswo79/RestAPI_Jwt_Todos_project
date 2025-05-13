@@ -236,22 +236,22 @@ public class TodosApiCrudFlowTest {
     @DisplayName("테스트 데이터 정리")
     @Transactional // 삭제 작업도 트랜잭션 내에서 실행되도록 함
     void cleanupTestData() {
-        log.info("모든 테스트 완료 후 테스트 데이터 정리 실행: {}", TEST_USERID);
-        // UsersRepository를 사용하여 특정 사용자 삭제
-        long deletedCount = usersRepository.deleteByUserId(TEST_USERID); // userId를 기준으로 삭제
-        if (deletedCount > 0) {
-             log.info("테스트 사용자 삭제 성공: userId: {}", TEST_USERID);
+        log.info("모든 테스트 완료 후 user 테스트 데이터 정리 실행: {}", TEST_USERID);
+
+        long usersDeletedCount = usersRepository.deleteByUserId(TEST_USERID);
+        if (usersDeletedCount > 0) {
+             log.info("테스트 user 삭제 성공: userId: {}", TEST_USERID);
         } else {
-             log.warn("테스트 사용자 삭제 대상 없음: userId: {}", TEST_USERID);
+             log.warn("테스트 user 삭제 대상 없음: userId: {}", TEST_USERID);
         }
         
-        log.info("모든 테스트 완료 후 테스트 데이터 정리 실행: {}", UPDATED_TODO_CONTENT);
-        // UsersRepository를 사용하여 특정 사용자 삭제
-        long deletedCount2 = todosRepository.deleteByContent(UPDATED_TODO_CONTENT); // userId를 기준으로 삭제
-        if (deletedCount > 0) {
-             log.info("테스트 사용자 삭제 성공: userId: {}", UPDATED_TODO_CONTENT);
+        log.info("모든 테스트 완료 후 todo 테스트 데이터 정리 실행: {}", UPDATED_TODO_CONTENT);
+
+        long todosDeletedCount = todosRepository.deleteByContent(UPDATED_TODO_CONTENT);
+        if (todosDeletedCount > 0) {
+             log.info("테스트 todo 삭제 성공: content: {}", UPDATED_TODO_CONTENT);
         } else {
-             log.warn("테스트 사용자 삭제 대상 없음: userId: {}", UPDATED_TODO_CONTENT);
+             log.warn("테스트 todo 삭제 대상 없음: content: {}", UPDATED_TODO_CONTENT);
         }
     }
 }
