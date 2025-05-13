@@ -1,0 +1,65 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '2.6.4' // 스프링 부트 버전 다운
+	id 'io.spring.dependency-management' version '1.1.7' // 이 버전은 3.x에 가깝습니다. 2.x 호환 버전 확인 필요
+}
+
+group = 'com.aladdin.task'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(11) // 자바 버전 변경
+	}
+}
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+
+	// resolutionStrategy 블록 주석 처리됨
+	/*all {
+        resolutionStrategy {
+            force 'io.jsonwebtoken:jjwt-api:0.12.5'
+            force 'io.jsonwebtoken:jjwt-impl:0.12.5'
+            force 'io.jsonwebtoken:jjwt-jackson:0.12.5'
+        }
+    } */
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+
+	// Spring Security 의존성 (스프링 부트 2.6.4 호환 버전이 자동으로 선택될 것입니다)
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+
+	compileOnly 'org.projectlombok:lombok'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.springframework.security:spring-security-test' // Spring Security 테스트 지원 (MockMvc 연동 등)
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+	// SQLite 드라이버
+	implementation 'org.xerial:sqlite-jdbc:3.49.1.0'
+	// Hibernate Community Dialects 추가 (Hibernate 6.x용 Dialect) - 이 부분 충돌 가능성 매우 높음
+	//implementation 'org.hibernate:hibernate-community-dialects:6.6.13.Final' // Hibernate 6.x용입니다.
+	//implementation 'com.github.gwenn:hibernate-sqlite-dialect:1.0.0'
+	implementation 'com.github.gwenn:sqlite-dialect:0.1.2'
+
+	// JWT 관련 의존성 (jjwt) - 0.11.5로 버전 변경
+	implementation 'io.jsonwebtoken:jjwt-api:0.11.5'
+	runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.11.5'
+	runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.11.5'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
