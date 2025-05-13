@@ -1,30 +1,25 @@
-HELP.md
-.gradle
-build/
-!gradle/wrapper/gradle-wrapper.jar
-!**/src/main/**/build/
-!**/src/test/**/build/
+# Gradle 관련
+.gradle/                 # Gradle 캐시 및 임시 파일 (제외)
+build/                   # 빌드 결과물 디렉토리 (컴파일된 클래스, JAR 등) (제외)
+!gradle/wrapper/gradle-wrapper.jar # Gradle 래퍼 JAR 파일 (포함 - 예외 처리)
 
-### STS ###
-.apt_generated
+# IDE 관련 파일 (각 IDE에 맞춰 필요한 부분만 사용)
+### Eclipse ###
+.apt_generated/
 .classpath
 .factorypath
 .project
-.settings
+.settings/
 .springBeans
-.sts4-cache
-bin/
-!**/src/main/**/bin/
-!**/src/test/**/bin/
+.sts4-cache/
+bin/                     # Eclipse 빌드 결과물 (제외)
 
 ### IntelliJ IDEA ###
-.idea
+.idea/                   # IntelliJ IDEA 설정 디렉토리 (제외)
 *.iws
 *.iml
 *.ipr
-out/
-!**/src/main/**/out/
-!**/src/test/**/out/
+out/                     # IntelliJ IDEA 빌드 결과물 (제외)
 
 ### NetBeans ###
 /nbproject/private/
@@ -34,7 +29,15 @@ out/
 /.nb-gradle/
 
 ### VS Code ###
-.vscode/
+.vscode/                 # VS Code 설정 디렉토리 (제외)
 
-### SQLite3 ###
-mydb.db
+# 기타 제외 파일
+*.log                    # 로그 파일 (제외)
+*.class                  # 컴파일된 클래스 파일 (build 디렉토리에서 이미 제외되지만 명시적으로) (제외)
+# HELP.md                # 필요에 따라 포함 또는 제외 결정 (일반적으로 포함)
+
+# SQLite3 데이터베이스 파일 (만약 초기 스키마/데이터 포함 시 포함, 아니면 제외)
+# 만약 mydb.db 파일에 애플리케이션 실행에 필수적인 초기 데이터/스키마가 포함되어 있고,
+# 이 파일을 그대로 사용해야만 한다면 아래 라인을 제거하여 Git에 포함시켜야 합니다.
+# 만약 애플리케이션 실행 시 데이터베이스를 새로 생성하거나 마이그레이션 한다면 이 라인을 유지하여 제외합니다.
+# mydb.db
