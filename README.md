@@ -1,4 +1,4 @@
-# 1. 실행 방법
+# 1. 실행 방법 (IDE툴은 이클립스를 사용했습니다.)
 ### 1-3. SQLite3 초기화 관련 소스
 ``` 
 - schema.sql
@@ -15,6 +15,15 @@
 ### 1-3. SpringBoot Gradle 프로젝트 임포트
 ```
 	IDE툴 실행 > Import projects > Gradle > Exiting Gradle Project
+```
+
+### ***중요*** 1-4. lombok관련 setter/getter 메소드를 못찾는 이슈가 생길 시!!
+```
+	1. https://projectlombok.org/download 사이트로 이동하여 롬복.jar를 다운받아 줍니다
+	2. 다운받은 롬복을 더블 클릭하여 실행하면 창이 뜨는데, Specify location...을 눌러 로컬 PC에 있는 IDE툴.exe가 있는 경로를 선택합니다.
+	3. IDE툴을 종료합니다.
+	4. IDE툴을 다시 키고 Project Clean 후 Gradle > Refresh gradle project을 합니다.
+	5. 에러가 사라지는 것을 확인할 수 있습니다.
 ```
 
 ### 1-4. 테스트코드 설명
