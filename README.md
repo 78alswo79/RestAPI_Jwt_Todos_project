@@ -1,4 +1,4 @@
-# 1. 실행 방법 (IDE툴은 이클립스를 사용했습니다.)
+# 1. 실행 방법 (IDE툴은 이클립스를 사용했습니다. STS툴 역시 가능합니다)
 ### 1-3. SQLite3 초기화 관련 소스
 ``` 
 - schema.sql
@@ -31,11 +31,27 @@
 1. UserApiAndJwtAuthFlowTest.java
   - 위치 : src/test/java 하위 패키지 경로
   - 테스트 프로세스 : 회원가입->로그인->JWT 인증 흐름 테스트
+  - 실행방법 : 파일 우클릭 > Run as > Junit 테스트 실행
   
 2. TodosApiCrudFlowTest
   - 위치 : src/test/java 하위 패키지 경로
   - 테스트 프로세스 : TODO 생성->목록조회->수정->삭제 테스트
+  - 실행방법 : 파일 우클릭 > Run as > Junit 테스트 실행
+상세 설명은 2.Rest API 요약 명세 참조.
+```
 
+
+### 1-5. 컨트롤러 코드 설명
+```
+1. RestUsersController.java
+  - 위치 : src/main/java 하위 패키지 경로 controller
+  - 설명 : user관련 CRUD가 포함돼 있습니다.
+  - 실행방법 : 각 메소드 요청에 맞게 PostMan으로 테스트를 실시해 결과를 확인합니다.
+  
+2. RestTodosController
+  - 위치 : src/main/java 하위 패키지 경로 controller
+  - 설명 : todo관련 CRUD가 포함돼 있습니다.
+  - 실행방법 : 각 메소드 요청에 맞게 PostMan으로 테스트를 실시해 결과를 확인합니다.
 상세 설명은 2.Rest API 요약 명세 참조.
 ```
 
