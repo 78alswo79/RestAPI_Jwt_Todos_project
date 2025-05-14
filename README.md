@@ -25,7 +25,15 @@
 	4. IDE툴을 다시 키고 Project Clean 후 Gradle > Refresh gradle project을 합니다.
 	5. 에러가 사라지는 것을 확인할 수 있습니다.
 ```
-
+### ***중요*** 1-4. 임포트 했는데 프로젝트 이름이 맞지 않는 이슈 발생이 생길 시!!
+*** ex) C:\workspace\RestAPI_Jwt_Todos_project-master\RestAPI_Jwt_Todos_project-master' can't be named 'practice' because it's located directly under the workspace root. If such a project is renamed, Eclipse would move the container directory. To resolve this problem, move the project out of the workspace root or configure it to have the name 'RestAPI_Jwt_Todos_project-master'
+```
+	1. 실제 프로젝트 이름을 practice로 수정합니다.
+	2. Project > Clean을 합니다.
+	3. 프로젝트 practice 우 클릭 > gradle > refresh gradle project를 합니다.
+	4. 프로젝트 패키지 경로가 정상적으로 바뀌는 지 확인합니다.
+	5. 실행하여 테스트 합니다.
+```
 ### 1-4. 테스트코드 설명
 ```
 1. UserApiAndJwtAuthFlowTest.java
