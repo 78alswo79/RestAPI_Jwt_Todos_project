@@ -92,7 +92,7 @@ public class RestTodosController {
         
         List<TodosEntity> todoList = todosService.getTodoList();
         
-        if (todoList == null) {
+        if (todoList == null || todoList.size() == 0) {
         	return ResponseEntity.status(HttpStatus.NOT_FOUND).body("조회되는 todo리스트가 없습니다.");
         }
         
